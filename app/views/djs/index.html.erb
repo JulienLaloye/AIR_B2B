@@ -1,0 +1,8 @@
+<div class="container py-5">
+  <h3 class="pb-2 mb-0">DJs</h3>
+  <div class="row">
+    <% @djs.each do |dj| %>
+      <%= link_to dj.name, dj_path(dj), class:"text-decoration-none" %>
+    <% end %>
+  </div>
+</div>
