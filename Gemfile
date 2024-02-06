@@ -78,3 +78,5 @@ end
 #extra gem goes here:
 
 gem "devise"
+
+gem 'faker'
