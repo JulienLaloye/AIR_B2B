@@ -16,8 +16,7 @@ User.destroy_all
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    password: "1234567",
-    profile_picture: Faker::LoremFlickr.image
+    password: "1234567"
   )
   user.save!
 end
@@ -33,7 +32,7 @@ djs_data = [
   { name: "Basto", price_per_day: price_per_day.sample, genre: categories.sample, location: "London", capacity: capacity.sample, description: "Disco and House Music DJ, remixer and music producer", picture: "../app/assets/images/dj2.jpeg", user: User.all[1]},
   { name: "Claptone", price_per_day: price_per_day.sample, genre: categories.sample, location: "Netherlands", capacity: capacity.sample, description: "Dutch house DJ and producer, who plays a mixture of techno, progressive and deep house styles", picture: "../app/assets/images/dj3.jpg", user: User.all[2]},
   { name: "DallasK", price_per_day: price_per_day.sample, genre: categories.sample, location: "Paris", capacity: capacity.sample, description: "Parisian DJ producer based in London, UK; noted for mixing techno, house, and drum and bass", picture: "../app/assets/images/dj4.png", user: User.all[3]},
-  { name: "DJ Jurgen",price_per_day: price_per_day.sample, genre: categories.sample, location: "Japan", capacity: capacity.sample, description: "Grammy nominated Japanese producer / DJ", picture: "../app/assets/images/dj5.jpeg", user: User.all[4]},
+  { name: "DJ Jurgen", price_per_day: price_per_day.sample, genre: categories.sample, location: "Japan", capacity: capacity.sample, description: "Grammy nominated Japanese producer / DJ", picture: "../app/assets/images/dj5.jpeg", user: User.all[4]},
 ]
 
 djs_data.each do |attributes|
