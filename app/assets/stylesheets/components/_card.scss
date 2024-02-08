@@ -1,0 +1,19 @@
+.genre-card > li {
+  border: 2px;
+  padding: .5em;
+  color: rgb(85, 85, 85);
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.genre-list {
+  text-align: center;
+}
+
+.genre-card {
+  list-style: none;
+}
+
+.dj-list {
+  display: flex;
+}

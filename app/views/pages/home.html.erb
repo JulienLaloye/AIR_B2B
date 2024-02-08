@@ -1,2 +1,21 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% @djs.each do |dj| %>
+  <div class="genre-list">
+    <ul class="genre-card btn btn-link link-offset-2 link-underline link-underline-opacity-0">
+      <li><%= dj.genre %></li>
+    </ul>
+  </div>
+<% end %>
+<% @djs.each do |dj| %>
+  <div class="">
+    <div class="dj-list">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="<%= dj.picture %>" alt="dj-picture">
+        <div class="card-body">
+          <h5><%= dj.location %></h5>
+          <p><%= dj.genre %></p>
+          <p>€<%= dj.price_per_day %>/night</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
