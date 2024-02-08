@@ -1,12 +1,21 @@
-<div class="dj-picture">
-
+<div class="container mb-5 py-5">
+  <div class="row my-2 justify-content-center">
+    <div class="col-12 col-sm-6 mb-4">
+      <div class="card-details shadow">
+        <%= image_tag @dj.picture, class: "card-img-top", alt: "dj-picture" %>
+        <div class="card-info d-flex flex-column m-4">
+          <h1><%= @dj.name %></h1>
+          <h4><%= @dj.location %></h4>
+          <p>Genre: <%= @dj.genre %></p>
+          <p>Capacity: <%= @dj.capacity %></p>
+          <p>Description: <%= @dj.description %></p>
+        </div>
+        <div class="d-flex align-items-end justify-content-between">
+          <h2 class="card-price m-4">Price/Night: €<%= @dj.price_per_day %></h2>
+          <small><%= link_to "Book Now", "#", class: "btn btn-dark m-4" %></small>
+        </div>
+      </div>
+      <%= link_to "Back", djs_path, class: "btn btn-secondary text-decoration-none mt-2 w-100" %>
+    </div>
+  </div>
 </div>
-<h1><%= @dj.name %></h1>
-<h5><%= @dj.location %></h5>
-<p><%= @dj.genre %></p>
-
-<h5>price/night: €<%= @dj.price_per_day %></h5>
-<p>capacity: <%= @dj.capacity %></p>
-<p><%= @dj.description %></p>
-
-<img src="<%= @dj.picture %>" alt="dj-picture">

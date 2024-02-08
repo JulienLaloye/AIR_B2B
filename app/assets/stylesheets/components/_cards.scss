@@ -1,0 +1,33 @@
+.card-img-top {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card {
+  overflow: hidden;
+  transition: 0.5s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+}
+
+.card:not(:hover) {
+  filter: grayscale(100%);
+}
+
+.text-decoration-none {
+  color: black;
+}
+
+.card-price h2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card-details .card-info {
+  justify-content: space-between;
+}
