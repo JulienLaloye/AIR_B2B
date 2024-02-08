@@ -9,6 +9,8 @@ class ReviewsController < ApplicationController
     end
   end
 
+  #where to list the review
+
   private
 
   def review_params

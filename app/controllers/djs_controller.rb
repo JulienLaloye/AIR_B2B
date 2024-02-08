@@ -1,6 +1,7 @@
 class DjsController < ApplicationController
   def index
     @djs = Dj.all
+    #is it working for current user also
   end
 
   def show

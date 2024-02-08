@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   # As an owner, I can list my bookings
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings
   end
 
   def create
