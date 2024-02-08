@@ -5,7 +5,6 @@ class DjsController < ApplicationController
 
   def show
     @dj = Dj.find(params[:id])
-    @booking = Booking.new
   end
 
   def new
@@ -27,12 +26,13 @@ class DjsController < ApplicationController
 
   def update
     @dj = Dj.find(params[:id])
-    @dj.update(params[:dj])
+    @dj.update(dj_params)
+    redirect_to dj_path(@dj)
   end
 
   private
 
   def dj_params
-    params.require(:dj).permit(:name, :price_per_day, :genre, :location, :capacity, :description, :picture)
+    params.require(:dj).permit(:name, :price_per_day, :genre, :location, :capacity, :description, :picture, :user_id)
   end
 end
