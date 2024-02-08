@@ -2,8 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  get "/djs", to: "djs#index"
-  get "/djs/:id", to: "djs#show", as: "dj"
+  resources :djs, except: :destroy do
+    resources :bookings, only: %i[create]
+  end
+
+  resources :bookings, except: %i[destroy edit] do
+    resources :reviews, only: :create
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
