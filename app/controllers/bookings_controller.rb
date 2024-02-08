@@ -16,8 +16,4 @@ class BookingsController < ApplicationController
     @booking.update(params[:booking])
   end
 
-
-
-
-
 end
