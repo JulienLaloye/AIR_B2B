@@ -7,15 +7,21 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'date'
 
-Dj.destroy_all
+Review.destroy_all
+Booking.destroy_all
+Dj.delete_all
 User.destroy_all
 
-5.times do
+city = ["Berlin", "London", "Netherlands", "Paris", "Japan"]
+
+6.times do
   user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
+    location: city.sample,
     password: "1234567"
   )
   user.save!
@@ -33,11 +39,42 @@ djs_data = [
   { name: "Claptone", price_per_day: price_per_day.sample, genre: categories.sample, location: "Netherlands", capacity: capacity.sample, description: "Dutch house DJ and producer, who plays a mixture of techno, progressive and deep house styles", picture: "../app/assets/images/dj3.jpg", user: User.all[2]},
   { name: "DallasK", price_per_day: price_per_day.sample, genre: categories.sample, location: "Paris", capacity: capacity.sample, description: "Parisian DJ producer based in London, UK; noted for mixing techno, house, and drum and bass", picture: "../app/assets/images/dj4.png", user: User.all[3]},
   { name: "DJ Jurgen", price_per_day: price_per_day.sample, genre: categories.sample, location: "Japan", capacity: capacity.sample, description: "Grammy nominated Japanese producer / DJ", picture: "../app/assets/images/dj5.jpeg", user: User.all[4]},
+  { name: "Mr Disrespekt", price_per_day: price_per_day.sample, genre: categories.sample, location: "Frankfurt", capacity: capacity.sample, description: "Top German DJ of all times, he is Germans' favourite!", picture: "../app/assets/images/dj6.jpg", user: User.all[5]}
 ]
 
 djs_data.each do |attributes|
-  dj = Dj.create!(attributes)
-  puts "Created #{dj.name}"
+  @dj = Dj.create!(attributes)
+  puts "Created #{@dj.name}"
 end
 
 puts "Finished!"
+
+status = [0, 1]
+
+Dj.all.each do |dj|
+  6.times do
+    booking = Booking.new(
+      date_begin: Date.today,
+      date_end: Date.today + 1.day,
+      status: status.sample,
+      dj: dj,
+      user: User.where.not(id: dj.user.id).sample
+    )
+    booking.save!
+  end
+end
+rating = Random.new
+comment = ["Great guy!", "Nice Music!", "Cool", "It was so fun!", "Excellent music", "What a perfect night to have him!"]
+
+Booking.all.each do |booking|
+  10.times do
+    review = Review.new(
+      rating: rating.rand(5.0..10.0),
+      comment: comment.sample,
+      type_of_review: status.sample,
+      booking: booking,
+      user: booking.user
+    )
+    review.save!
+  end
+end
