@@ -14,7 +14,7 @@ Booking.destroy_all
 Dj.delete_all
 User.destroy_all
 
-city = ["Berlin", "London", "Netherlands", "Paris", "Japan"]
+city = ["Berlin", "London", "Amsterdam", "Paris", "Tokyo"]
 
 6.times do
   user = User.new(
@@ -65,25 +65,30 @@ Dj.all.each do |dj|
     booking = Booking.new(
       date_begin: Date.today,
       date_end: Date.today + 1.day,
-      status: status.sample,
+      status: 0, #0 for pending, 1 for accepted, 2 for declined, 3 for cancelled
       dj: dj,
       user: User.where.not(id: dj.user.id).sample
     )
     booking.save!
   end
 end
-rating = Random.new
 comment = ["Great guy!", "Nice Music!", "Cool", "It was so fun!", "Excellent music", "What a perfect night to have him!"]
 
 Booking.all.each do |booking|
-  10.times do
-    review = Review.new(
-      rating: rating.rand(5.0..10.0),
+  review = Review.new(
+      rating: (0...5).to_a.sample,
       comment: comment.sample,
-      type_of_review: status.sample,
+      type_of_review: 0, #0 means that the review was emited by the user that booked the dj
       booking: booking,
       user: booking.user
     )
-    review.save!
-  end
+  review_dj = Review.new(
+      rating: (0...5).to_a.sample,
+      comment: comment.sample,
+      type_of_review: 1, #1 means that the review was emited by the user managing the DJ
+      booking: booking,
+      user: booking.dj.user
+    )
+  review.save!
+  review_dj.save!
 end
