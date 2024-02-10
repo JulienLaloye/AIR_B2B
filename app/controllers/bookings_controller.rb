@@ -2,6 +2,10 @@ class BookingsController < ApplicationController
   # As an owner, I can list my bookings
   def index
     @bookings = current_user.bookings
+    @bookings_djs = []
+    current_user.djs.each do |dj|
+      @bookings_djs << dj.bookings
+    end
   end
 
   def create
@@ -25,5 +29,9 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:date_begin, :date_end, :user_id, :dj_id, :status)
+  end
+
+  def if_no_bookings
+    return
   end
 end
