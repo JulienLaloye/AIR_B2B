@@ -1,0 +1,45 @@
+<h1><%= current_user.email %></h1>
+<div class="container">
+  <h1>My bookings</h1>
+  <ul>
+  <% @bookings.each do |booking| %>
+    <li class="card">
+      <h4><%= booking.dj.name %></h4>
+      <div class="flex align-items-center justify-content-center">
+        <%= booking.date_begin %> to <%= booking.date_end %>
+        <%= (booking.dj.price_per_day * (booking.date_end - booking.date_begin)).to_i %>
+        <div>
+        <%# put java script here to have a button to accept or decline, once accepted, you cannot go back in time%>
+          <button data-action="click->toggle#fire" class="btn btn-outline-primary">Accept</button>
+          <button data-action="click->toggle#fire" class="btn btn-outline-primary">Decline</button>
+        </div>
+        <%# put java script here to have a text-box containing the review, it can be changed on the fly %>
+        <%= booking.reviews.where(type_of_review: 0).last.present? ? booking.reviews.where(type_of_review: 0).last.comment : "" %>
+      </div>
+    </li>
+  <% end%>
+  </ul>
+</div>
+<%# container with the bookings of the DJs I own%>
+<div class="container">
+  <h1>My DJ's bookings</h1>
+  <ul>
+  <% @bookings_djs.each do |bookings| %>
+    <li class="card">
+    <h4><%= @bookings_djs.last.last.dj.name %></h4>
+      <ol>
+        <% @bookings.each do |booking| %>
+          <li>
+            <%= booking.user.location %>
+            <div class="flex align-items-center">
+              <%= booking.date_begin %> to <%= booking.date_end %>
+              <%# put java script here to have a text-box containing the review, it can be changed on the fly %>
+              <%= booking.reviews.where(type_of_review: 1).last.present? ? booking.reviews.where(type_of_review: 1).last.comment : "" %>
+            </div>
+          </li>
+        <% end %>
+      </ol>
+    </li>
+  <% end%>
+  </ul>
+</div>
