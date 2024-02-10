@@ -1,19 +1,16 @@
-<div class="container">
-  <h1 class="my-5">Meet the Masters of Beat!</h1>
+<div class="container mt-3">
   <div class="row d-flex justify-content-between">
-      <% @djs.each do |dj| %>
-        <div class="col-md-3 mb-5">
-          <div class="card">
-            <%= link_to dj_path(dj), class:"text-decoration-none" do %>
-              <%= image_tag(dj.picture, class:"w-100", alt: "dj-picture") %>
-                <div class="card-body">
-                  <h5 class="card-title"> <%= dj.name %></h5>
-                  <p class="card-text"><%= dj.genre %></p>
-                  <p class="card-text">Price/Night: €<%= dj.price_per_day %></p>
-                </div>
-              </div>
-            <% end  %>
+    <div class="col-12">
+      <h1> Meet the Masters of Beat!</h1>
+      <div class="container">
+        <div class="row">
+          <% @djs.each do |dj| %>
+            <div class="col-md-4">
+              <%= render "card", dj: dj %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
+     </div>
   </div>
 </div>
