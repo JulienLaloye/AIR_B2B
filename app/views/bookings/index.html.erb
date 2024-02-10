@@ -1,11 +1,10 @@
-<h1><%= current_user.email %></h1>
 <div class="container">
   <h1>My bookings</h1>
-  <ul>
+  <ul class="d-grid gap-3">
   <% @bookings.each do |booking| %>
     <li class="card">
       <h4><%= booking.dj.name %></h4>
-      <div class="flex align-items-center justify-content-center">
+      <div class="flex align-items-center justify-content-center padding">
         <%= booking.date_begin %> to <%= booking.date_end %>
         <%= (booking.dj.price_per_day * (booking.date_end - booking.date_begin)).to_i %>
         <div>
@@ -23,7 +22,7 @@
 <%# container with the bookings of the DJs I own%>
 <div class="container">
   <h1>My DJ's bookings</h1>
-  <ul>
+  <ul class="d-grid gap-3">
   <% @bookings_djs.each do |bookings| %>
     <li class="card">
     <h4><%= @bookings_djs.last.last.dj.name %></h4>
