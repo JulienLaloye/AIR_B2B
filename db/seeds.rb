@@ -27,6 +27,15 @@ city = ["Berlin", "London", "Amsterdam", "Paris", "Tokyo"]
   user.save!
 end
 
+user = User.new(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: "test@test.com",
+  location: city.sample,
+  password: "123456"
+)
+user.save
+
 puts "Creating Djs"
 
 categories = ["Techno", "Electro", "Hiphop", "House", "EDM"]
@@ -34,12 +43,12 @@ price_per_day = (200..1000).to_a
 capacity = (100..500).to_a
 
 djs_data = [
-  { name: "Bicep", price_per_day: price_per_day.sample, genre: categories.sample, location: "Berlin", capacity: capacity.sample, description: "He has released work under his own name as well as under the pseudonyms.", picture: "../app/assets/images/dj1.webp", user: User.all[0]},
-  { name: "Basto", price_per_day: price_per_day.sample, genre: categories.sample, location: "London", capacity: capacity.sample, description: "Disco and House Music DJ, remixer and music producer", picture: "../app/assets/images/dj2.jpeg", user: User.all[1]},
-  { name: "Claptone", price_per_day: price_per_day.sample, genre: categories.sample, location: "Amsterdam", capacity: capacity.sample, description: "Dutch house DJ and producer, who plays a mixture of techno, progressive and deep house styles", picture: "../app/assets/images/dj3.jpg", user: User.all[2]},
-  { name: "DallasK", price_per_day: price_per_day.sample, genre: categories.sample, location: "Paris", capacity: capacity.sample, description: "Parisian DJ producer based in London, UK; noted for mixing techno, house, and drum and bass", picture: "../app/assets/images/dj4.png", user: User.all[3]},
-  { name: "DJ Jurgen", price_per_day: price_per_day.sample, genre: categories.sample, location: "Tokyo", capacity: capacity.sample, description: "Grammy nominated Japanese producer / DJ", picture: "../app/assets/images/dj5.jpeg", user: User.all[4]},
-  { name: "Mr Disrespekt", price_per_day: price_per_day.sample, genre: categories.sample, location: "Frankfurt", capacity: capacity.sample, description: "Top German DJ of all times, he is Germans' favourite!", picture: "../app/assets/images/dj6.jpg", user: User.all[5]}
+  { name: "Bicep", price_per_day: price_per_day.sample, genre: categories.sample, location: "Berlin", capacity: capacity.sample, description: "He has released work under his own name as well as under the pseudonyms.", picture: "dj1.jpeg", user: User.all[0]},
+  { name: "Basto", price_per_day: price_per_day.sample, genre: categories.sample, location: "London", capacity: capacity.sample, description: "Disco and House Music DJ, remixer and music producer", picture: "dj2.jpeg", user: User.all[1]},
+  { name: "Claptone", price_per_day: price_per_day.sample, genre: categories.sample, location: "Netherlands", capacity: capacity.sample, description: "Dutch house DJ and producer, who plays a mixture of techno, progressive and deep house styles", picture: "dj3.jpg", user: User.all[2]},
+  { name: "DallasK", price_per_day: price_per_day.sample, genre: categories.sample, location: "Paris", capacity: capacity.sample, description: "Parisian DJ producer based in London, UK; noted for mixing techno, house, and drum and bass", picture: "dj4.png", user: User.all[3]},
+  { name: "DJ Jurgen", price_per_day: price_per_day.sample, genre: categories.sample, location: "Japan", capacity: capacity.sample, description: "Grammy nominated Japanese producer / DJ", picture: "dj5.jpeg", user: User.all[4]},
+  { name: "Mr Disrespekt", price_per_day: price_per_day.sample, genre: categories.sample, location: "Frankfurt", capacity: capacity.sample, description: "Top German DJ of all times, he is Germans' favourite!", picture: "dj6.jpg", user: User.all[5]}
 ]
 
 djs_data.each do |attributes|
