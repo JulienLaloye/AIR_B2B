@@ -1,7 +1,7 @@
 
 <div class="dj-card">
-   <%= image_tag dj.picture, class: "card-img-top", alt: "dj-picture" %>
   <%= link_to dj_path(dj), class:"text-decoration-none" do %>
+    <%= image_tag dj.picture, class: "card-img-top", alt: "dj-picture" %>
     <div class="dj-card-content">
       <div class="flex align-item-left" >
         <h6><%= dj.name %></h6>
@@ -9,5 +9,5 @@
       </div>
       <h6 class="card-text m-16" >Price/night: €<%= dj.price_per_day %></h6>
     </div>
+    <% end  %>
   </div>
-  <% end  %>
