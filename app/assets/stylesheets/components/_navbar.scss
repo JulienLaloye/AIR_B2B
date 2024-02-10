@@ -10,3 +10,16 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-style {
+  list-style: none;
+}
+
+.nav-style li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+#log-out {
+  padding-right: 0px;
+}
