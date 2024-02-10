@@ -1,21 +1,26 @@
-<% @djs.each do |dj| %>
-  <div class="genre-list">
-    <ul class="genre-card btn btn-link link-offset-2 link-underline link-underline-opacity-0">
-      <li><%= dj.genre %></li>
-    </ul>
-  </div>
-<% end %>
-<% @djs.each do |dj| %>
-  <div class="">
-    <div class="dj-list">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="<%= dj.picture %>" alt="dj-picture">
-        <div class="card-body">
-          <h5><%= dj.location %></h5>
-          <p><%= dj.genre %></p>
-          <p>€<%= dj.price_per_day %>/night</p>
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner ">
+        <div class="carousel-item active">
+          <%= image_tag "dj7.jpeg", class: "d-block w-100", alt: "dj-picture" %>
         </div>
-      </div>
+        <% @djs.each do |dj| %>
+          <div class="carousel-item">
+            <%= image_tag dj.picture, class: "d-block w-100 ", alt: "dj-picture" %>
+          </div>
+        <% end %>
+        <div class="carousel-caption d-none d-md-block">
+          <h1 class="font">Find the best DJs around the world!</h1>
+          <div class="my-5">
+            <%= link_to "Explore", djs_path, class: "button font" %>
+          </div>
+        </div>
     </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-<% end %>
