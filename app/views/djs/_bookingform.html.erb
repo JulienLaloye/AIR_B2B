@@ -1,0 +1,10 @@
+ <div class="booking-form">
+    <%= simple_form_for(@dj) do |f| %>
+    <%= f.input :location %>
+    <%= f.input :capacity %>
+  <% end %>
+  <%= simple_form_for(@booking) do |f| %>
+    <%= f.input :date_begin %>
+    <%= f.input :date_end %>
+  <% end %>
+</div>
