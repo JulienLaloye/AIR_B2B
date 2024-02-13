@@ -6,6 +6,7 @@ class DjsController < ApplicationController
 
   def show
     @dj = Dj.find(params[:id])
+    @booking = Booking.new
   end
 
   def new

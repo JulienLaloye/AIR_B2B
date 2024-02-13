@@ -1,30 +1,34 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid d-flex justify-content-between mx-5">
+  <div class="container d-flex justify-content-between">
+    <div>
     <%= link_to "#", class: "navbar-brand " do %>
-      <%= image_tag "air_b2b_logo.png" %>
+      <%= image_tag "Logo_Full.png", class:"w-50" %>
     <% end %>
-    <ul class="navbar-nav nav-style">
-      <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-           <li class="nav-item">
-            <%= link_to "Artists", djs_path, class: "nav-link" %>
-          </li>
+    </div>
+    <div>
+      <ul class="navbar-nav nav-style">
+        <% if user_signed_in? %>
+            <li class="nav-item active">
+              <%= link_to "Home", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Artists", djs_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Bookings", bookings_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "My DJs", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item" id="log-out">
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
+            </li>
+        <% else %>
           <li class="nav-item">
-            <%= link_to "Bookings", bookings_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
-           <li class="nav-item">
-            <%= link_to "My DJs", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item" id="log-out">
-            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
-          </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
