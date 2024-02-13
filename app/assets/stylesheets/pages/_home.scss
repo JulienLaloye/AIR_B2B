@@ -1,9 +1,13 @@
+body {
+background-color: white;
+}
+
 .bg {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 80vh;
-  background-color: #B08C8C;
+  background-color: white;
 }
 
 .swiper {
@@ -64,6 +68,7 @@
   padding: 10px 30px;
   border-radius: 30px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .button:hover {
