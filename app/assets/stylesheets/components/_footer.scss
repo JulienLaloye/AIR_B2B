@@ -2,14 +2,23 @@ img {
   width: 50px;
 }
 
-#footer {
-  border-top: solid;
-}
-
 .footer-links a {
   color: black;
 }
 
 p {
   margin: 0px;
+}
+
+.footer {
+  background: white;
+  width: 100%;
+}
+
+.footer .container {
+  border-top: solid;
+}
+
+.footer {
+  margin-top: 0px;
 }
