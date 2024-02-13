@@ -30,10 +30,6 @@ background-color: white;
   border-radius: 18%;
 }
 
-.font {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
 .text-main {
   margin-right: 150px;
   margin-top: 60px;
@@ -77,4 +73,10 @@ background-color: white;
   text-decoration: none;
   color: black;
   transition: 0.8s;
+}
+
+.font {
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
