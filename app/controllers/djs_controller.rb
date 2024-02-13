@@ -1,6 +1,4 @@
 class DjsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
-
   def index
     @djs = Dj.all
     #is it working for current user also
