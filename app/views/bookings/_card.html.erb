@@ -12,7 +12,7 @@
         Total: €<%=(booking.dj.price_per_day * (booking.date_end - booking.date_begin)).to_i %>
     </div>
     <div class="card-text">
-        <%= booking.date_begin.strftime('%d %B %Y') %> - <%= booking.date_end.strftime('%d %B %Y') %>
+        <%= booking.date_begin.strftime('%d %b. %Y') %> - <%= booking.date_end.strftime('%d %b. %Y') %>
     </div>
     <a href="#" class="card-button">Review</a>
 </div>
