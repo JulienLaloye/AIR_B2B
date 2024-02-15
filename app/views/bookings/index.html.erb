@@ -1,24 +1,10 @@
 <div class="container">
-  <h1>My bookings</h1>
-  <ul class="d-grid gap-3">
-  <% @bookings.each do |booking| %>
-    <li class="card">
-      <h4><%= booking.dj.name %></h4>
-      <div class="flex align-items-center justify-content-center padding">
-        <%= booking.date_begin %> to <%= booking.date_end %>
-        <%= (booking.dj.price_per_day * (booking.date_end - booking.date_begin)).to_i %>
-        <div>
-        <%# put java script here to have a button to accept or decline, once accepted, you cannot go back in time%>
-          <button data-action="click->toggle#fire" class="btn btn-outline-primary">Accept</button>
-          <button data-action="click->toggle#fire" class="btn btn-outline-primary">Decline</button>
-        </div>
-        <%# put java script here to have a text-box containing the review, it can be changed on the fly %>
-        <%= booking.reviews.where(type_of_review: 0).last.present? ? booking.reviews.where(type_of_review: 0).last.comment : "" %>
-      </div>
-    </li>
-  <% end%>
-  </ul>
-</div>
+  <h1 class="p-3"> My bookings </h1>
+    <div class="card-container">
+      <% @bookings.each do |booking| %>
+        <%= render "card", booking: booking %>
+    <% end %>
+  </div>
 <%# container with the bookings of the DJs I own%>
 <div class="container">
   <h1>My DJ's bookings</h1>
@@ -31,9 +17,9 @@
           <li>
             <%= booking.user.location %>
             <div class="flex align-items-center">
-              <%= booking.date_begin %> to <%= booking.date_end %>
+              <%= booking.date_begin.strftime('%d %B %Y') %> to <%= booking.date_end.strftime('%d %B %Y') %>
               <%# put java script here to have a text-box containing the review, it can be changed on the fly %>
-              <%= booking.reviews.where(type_of_review: 1).last.present? ? booking.reviews.where(type_of_review: 1).last.comment : "" %>
+              <%# <%= booking.reviews.where(type_of_review: 1).last.present? ? booking.reviews.where(type_of_review: 1).last.comment : "" %>
             </div>
           </li>
         <% end %>
@@ -41,4 +27,5 @@
     </li>
   <% end%>
   </ul>
+</div>
 </div>
