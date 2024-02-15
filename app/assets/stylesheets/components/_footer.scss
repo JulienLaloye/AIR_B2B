@@ -12,13 +12,21 @@ p {
 }
 
 .footer {
-  position: fixed;
   background: white;
   width: 100%;
-  position: absolute;
-  bottom: 0;
 }
 
 .footer .container {
   border-top: solid;
 }
+
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+ }
+
+ .footer-container {
+  position: sticky;
+  bottom: 0;
+ }
