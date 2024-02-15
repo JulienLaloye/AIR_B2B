@@ -10,7 +10,7 @@
   width: 400px;
   height: 480px;
   position: absolute;
-  top: 0;
+  top: 10%;
   bottom: 0;
   left: 0;
   right: 0;
@@ -69,4 +69,10 @@
 .color-main:hover {
   color: black;
   text-decoration: none;
+}
+
+@media screen and (max-width: 800px) {
+  .login {
+    width: 80%;
+  }
 }
