@@ -1,0 +1,18 @@
+<div class="card-sl">
+    <div class="card-image">
+        <%= image_tag booking.dj.picture, class: "card-image w-100", alt: "dj-picture" %>
+    </div>
+    <div class="card-heading">
+        <%= booking.dj.name %>
+    </div>
+    <div class="card-text">
+        Agent: <%= booking.dj.user.first_name %> <%= booking.dj.user.last_name %>
+    </div>
+    <div class="card-text">
+        Total: €<%=(booking.dj.price_per_day * (booking.date_end - booking.date_begin)).to_i %>
+    </div>
+    <div class="card-text">
+        <%= booking.date_begin.strftime('%d %B %Y') %> - <%= booking.date_end.strftime('%d %B %Y') %>
+    </div>
+    <a href="#" class="card-button">Review</a>
+</div>
