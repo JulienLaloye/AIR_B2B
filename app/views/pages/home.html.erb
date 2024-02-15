@@ -7,7 +7,7 @@
       <h5 class="font pb-4">Find the best DJs around the world!</h5>
       <%= link_to "Explore", djs_path, class: "button font color-main" %>
     </div>
-    <div class="swiper mySwiper">
+    <div class="swiper mySwiper" data-controller="swiper">
       <div class="swiper-wrapper">
         <% @djs.each do |dj| %>
           <div class="swiper-slide">
