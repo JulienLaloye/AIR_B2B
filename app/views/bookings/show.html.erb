@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row my-3 justify-content-center">
+    <div class="col-12">
+      <div class="d-flex justify-content-between">
+        <div class="picture w-50">
+          <%= image_tag @booking.dj.picture, class: "card-img-top", alt: "dj-picture" %>
+        </div>
+        <div class="card-info w-100 mb-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <h1><%= @booking.dj.name %></h1>
+            <h4><i class="fa-solid fa-map-pin"></i> <%= @booking.dj.location %></h4>
+          </div>
+          <p>Duration: <%= (@booking.date_end - @booking.date_begin).to_i %> day(s)</p>
+          <p>Capacity: <%= @booking.dj.capacity %></p>
+          <h2 class="card-price">Total: €<%= (@booking.dj.price_per_day * (@booking.date_end - @booking.date_begin)).to_i %></h2>
+          <%= link_to "Review", "#", class: "btn btn-dark" %>
+        </div>
+      </div>
+
+<%# put the form here %>
+    </div>
+  </div>
+</div>

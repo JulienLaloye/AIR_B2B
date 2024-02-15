@@ -32,3 +32,9 @@
   font-size: 18px;
   font-weight: 300;
 }
+
+.navbar-container {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
