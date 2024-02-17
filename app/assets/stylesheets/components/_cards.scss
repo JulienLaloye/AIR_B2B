@@ -22,8 +22,8 @@
 .dj-card {
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: transform 0.5s ease-in-out;
 }
-
 
 .dj-card-img > img{
   border-radius: 8px 8px 0px 0;
@@ -40,8 +40,42 @@
   padding: 10px 15px;
 }
 
+.dj-card:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.dj-card:not(:hover) {
+  filter: grayscale(100%);
+
+}
+
 .text-decoration-none {
   color: black;
+}
+
+@media (max-width: 767px) {
+  .dj-card-container  {
+    width: 100%; /* Make the card take the full width of the screen */
+    height: auto; /* Allow the height to adjust according to the content */
+  }
+
+  .dj-card-price {
+    position: relative;
+    top: auto;
+    right: auto;
+    text-align: right;
+    margin-top: 10px;
+  }
+}
+
+.dj-card a {
+  text-decoration: none; /* Remove underline */
+  color: #333; /* Set default text color */
+}
+
+.dj-card:hover a {
+  color: #333; /* Set the same text color as the default state */
 }
 
 .dj-card-price {
@@ -51,8 +85,8 @@
   align-items:flex-start;
   position:relative;
   float: right;
-   font-size: 14px;
-   color: #636262;
+  font-size: 14px;
+  color: #636262;
 }
 
  .dj-card-text {
@@ -60,4 +94,5 @@
     background: #fff;
     font-size: 14px;
     color: #636262;
+    margin-bottom: 16px;
 }
