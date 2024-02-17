@@ -21,8 +21,10 @@
       </div>
       <div class="review-and-form d-flex">
         <div class="reviews mt-2">
+
+
           <h5><strong>Reviews</strong></h5>
-          <ul class="list-group">
+          <ul class="list-group list-group-flush">
             <% @dj.reviews.each do |review| %>
               <li class="list-group-item"><%= review.comment %></li>
             <% end %>
