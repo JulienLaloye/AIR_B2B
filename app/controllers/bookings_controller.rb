@@ -2,10 +2,7 @@ class BookingsController < ApplicationController
   # As an owner, I can list my bookings
   def index
     @bookings = current_user.bookings
-    @bookings_djs = []
-    current_user.djs.each do |dj|
-      @bookings_djs << dj.bookings
-    end
+    @djs = current_user.djs
   end
 
   def create

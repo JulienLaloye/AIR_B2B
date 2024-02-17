@@ -7,6 +7,11 @@ class DjsController < ApplicationController
 
   def show
     @dj = Dj.find(params[:id])
+    rating = 0.0
+    @dj.reviews.each do |review|
+      rating += review.rating
+    end
+    @rating = rating / @dj.reviews.size
     @booking = Booking.new
   end
 

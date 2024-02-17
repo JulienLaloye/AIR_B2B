@@ -1,0 +1,12 @@
+<div class="booking-card-sl m-3 p-2">
+  <div class="booking-card-heading">
+    <%= booking.user.location %>
+  </div>
+    <div class="d-flex justify-content-between">
+      <div class="booking-card-text"><%= booking.date_begin.strftime('%d %b. %Y') %> - <%= booking.date_end.strftime('%d %b. %Y') %></div>
+      <div>
+        <div class="booking-card-text">Booker: <strong><%= booking.user.first_name%> <%= booking.user.last_name%></strong></div>
+        <i class="fa-solid fa-star"><%= booking.user.reviews %></i>
+      </div>
+  </div>
+</div>
