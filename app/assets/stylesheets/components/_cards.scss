@@ -1,9 +1,10 @@
 
 .card-img-top {
-  height: 280px;
-  width: 450px;
+  height: 300px;
+  width: 300px;
   object-fit: cover;
-  margin-right: 20px;
+  margin-right: 100px;
+  border-radius: 25px;
 }
 
 .card {
@@ -17,6 +18,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   padding: 16px;
+  margin-bottom: 120px;
 }
 
 .dj-card {
@@ -80,6 +82,7 @@
     right: auto;
     text-align: right;
     margin-top: 10px;
+    margin-bottom: 20px;
   }
 }
 
@@ -109,4 +112,12 @@
     font-size: 14px;
     color: #1f1e1e;
     margin-bottom: 16px;
+}
+
+.show-reviews {
+  width: 400px;
+}
+
+.margin-120 {
+  margin-top: 30px;
 }

@@ -69,24 +69,24 @@ Dj.all.each do |dj|
       date_end: date + numbers_booking.sample.day,
       status: 0,
       #0 for pending, 1 for accepted, 2 for declined, 3 for cancelled
-    dj: dj,
+      dj: dj,
       user: User.where.not(id: dj.user.id).sample
     )
     booking.save!
   end
 end
 comment = ["Great guy!", "Nice Music!", "Cool", "It was so fun!", "Excellent music", "What a perfect night to have him!"]
-
+rating = (0...5).to_a
 Booking.all.each do |booking|
   review = Review.new(
-      rating: (0...5).to_a.sample,
+      rating: rating.sample.to_i,
       comment: comment.sample,
       type_of_review: 0, #0 means that the review was emited by the user that booked the dj
       booking: booking,
       user: booking.user
     )
   review_dj = Review.new(
-      rating: (0...5).to_a.sample,
+      rating: rating.sample.to_i,
       comment: comment.sample,
       type_of_review: 1, #1 means that the review was emited by the user managing the DJ
       booking: booking,
