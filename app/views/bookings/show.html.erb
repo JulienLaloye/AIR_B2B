@@ -13,7 +13,7 @@
           <p>Duration: <%= (@booking.date_end - @booking.date_begin).to_i %> day(s)</p>
           <p>Capacity: <%= @booking.dj.capacity %></p>
           <h2 class="card-price">Total: €<%= (@booking.dj.price_per_day * (@booking.date_end - @booking.date_begin)).to_i %></h2>
-          <%= link_to "Review", "#", class: "btn btn-dark" %>
+          <%# <%= render "reviewform", booking: @booking %>
         </div>
       </div>
 
