@@ -67,6 +67,7 @@ Dj.all.each do |dj|
     booking = Booking.new(
       date_begin: date,
       date_end: date + numbers_booking.sample.day,
+      status: 0,
       #0 for pending, 1 for accepted, 2 for declined, 3 for cancelled
       dj: dj,
       user: User.where.not(id: dj.user.id).sample

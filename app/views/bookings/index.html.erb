@@ -8,24 +8,18 @@
 <%# container with the bookings of the DJs I own%>
 <div class="container">
   <h1>My DJ's bookings</h1>
-  <ul class="d-grid gap-3">
-  <% @bookings_djs.each do |bookings| %>
-    <li class="booking-card">
-    <h4><%= @bookings_djs.last.last.dj.name %></h4>
-      <ol>
-        <% @bookings.each do |booking| %>
-          <li>
-            <%= booking.user.location %>
-            <div class="flex align-items-center">
-              <%= booking.date_begin.strftime('%d %B %Y') %> to <%= booking.date_end.strftime('%d %B %Y') %>
-              <%# put java script here to have a text-box containing the review, it can be changed on the fly %>
-              <%# <%= booking.reviews.where(type_of_review: 1).last.present? ? booking.reviews.where(type_of_review: 1).last.comment : "" %>
-            </div>
-          </li>
-        <% end %>
-      </ol>
-    </li>
-  <% end%>
-  </ul>
+  <div class="my-booking-card-container">
+    <% @djs.each do |dj| %>
+      <div class="booking-card">
+      <h2 class="d-flex justify-content-center"><%= dj.name %></h2>
+      <div class="booking-card-image-top">
+          <%= image_tag dj.picture, class: "booking-card-image w-100", alt: "dj-picture" %>
+      </div>
+          <% dj.bookings.each do |booking| %>
+              <%= render "mydjcard", booking: booking %>
+          <% end %>
+      </div>
+    <% end%>
+  </div>
 </div>
 </div>
