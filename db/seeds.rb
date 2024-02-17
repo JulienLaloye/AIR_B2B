@@ -11,7 +11,7 @@ require 'date'
 
 Review.destroy_all
 Booking.destroy_all
-Dj.delete_all
+Dj.destroy_all
 User.destroy_all
 
 city = ["Berlin", "London", "Amsterdam", "Paris", "Tokyo"]
@@ -63,7 +63,7 @@ Dj.all.each do |dj|
     booking = Booking.new(
       date_begin: Date.today,
       date_end: Date.today + 1.day,
-      status: 0, #0 for pending, 1 for accepted, 2 for declined, 3 for cancelled
+      #0 for pending, 1 for accepted, 2 for declined, 3 for cancelled
       dj: dj,
       user: User.where.not(id: dj.user.id).sample
     )
