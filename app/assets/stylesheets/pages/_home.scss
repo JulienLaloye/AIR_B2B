@@ -1,17 +1,14 @@
 body {
-background-color: white;
+  background-color: white;
 }
-
-
 
 .bg {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  height: 85vh;
   background-color: white;
 }
-
 
 .swiper {
   width: 400px;
@@ -81,4 +78,27 @@ background-color: white;
 .font {
   font-family: "Lexend", sans-serif;
   font-optical-sizing: auto;
+}
+
+.bbg {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 800px) {
+
+  .bbg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+  }
+
+  .text-main {
+    margin-top: 280px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 0px;
+    margin-bottom: 50px;
+  }
 }

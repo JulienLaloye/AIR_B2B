@@ -69,7 +69,7 @@ Dj.all.each do |dj|
       date_end: date + numbers_booking.sample.day,
       status: 0,
       #0 for pending, 1 for accepted, 2 for declined, 3 for cancelled
-      dj: dj,
+r      dj: dj,
       user: User.where.not(id: dj.user.id).sample
     )
     booking.save!

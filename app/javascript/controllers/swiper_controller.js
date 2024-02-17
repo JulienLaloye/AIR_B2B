@@ -28,8 +28,6 @@ export default class extends Controller {
         delay: 4000,
       }
 
-
-
     });
   }
 }
