@@ -15,18 +15,14 @@
         <%= booking.date_begin.strftime('%d %b. %Y') %> - <%= booking.date_end.strftime('%d %b. %Y') %>
     </div>
     <% if booking.status == 0 %>
-      <div class="booking-card-status" style="background-color: orange">
-        <p style="font-size: 14px">Pending</p>
-        <%= button_to  "cancel", booking_cancel_path(booking), method: :post, class: "btn btn-danger" %>
-      </div>
+          <h3 class="booking-card-text">Status: pending</h3>
+          <%= button_to  "Cancel", booking_cancel_path(booking), method: :post, class: "button font color-main w-100", style: "border-radius: 0px 0px 8px 8px; border: none" %>
     <% elsif booking.status == 1 %>
-        <div class="booking-card-status" style="background-color: green">
-            <p style="font-size: 14px">Accepted</p>
-            <%= button_to  "cancel", booking_cancel_path(booking), method: :post, class: "btn btn-danger" %>
-        </div>
+          <h3 class="booking-card-text">Status: accepted</h3>
+          <%= button_to  "Cancel", booking_cancel_path(booking), method: :post, class: "button font color-main w-100", style: "border-radius: 0px 0px 8px 8px; border: none" %>
     <% elsif booking.status == 2 %>
-      <p class="booking-card-status" style="font-size: 14px">Declined</p>
+      <h3 class="booking-card-text">Status: declined</h3>
     <% else %>
-      <p class="booking-card-status" style="font-size: 14px; background-color: red">Canceled</p>
+      <h3 class="booking-card-text">Status: canceled</h3>
     <% end %>
 </div>
