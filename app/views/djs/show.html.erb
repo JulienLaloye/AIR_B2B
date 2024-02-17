@@ -1,27 +1,36 @@
 <div class="container">
   <div class="row my-3 justify-content-center">
     <div class="col-12">
-      <div class="d-flex justify-content-between">
-        <div class="picture w-50">
+      <div class="d-flex">
+        <div class="picture">
           <%= image_tag @dj.picture, class: "card-img-top", alt: "dj-picture" %>
         </div>
-        <div class="card-info w-100 mb-3">
+        <div class="card-info flex-fill mb-2">
           <div class="d-flex justify-content-between align-items-center">
             <h1><%= @dj.name %></h1>
             <h4><i class="fa-solid fa-map-pin"></i> <%= @dj.location %></h4>
           </div>
-          <button class="btn btn-dark">
+          <button class="btn btn-dark mb-3">
             <i class="fa-solid fa-play"></i>
           </button>
-          <p>Genre: <%= @dj.genre %></p>
-          <p>Capacity: <%= @dj.capacity %></p>
-          <p>Description: <%= @dj.description %></p>
-          <h2 class="card-price">Price/Night: €<%= @dj.price_per_day %></h2>
-          <%= link_to "Book Now", "#", class: "btn btn-dark" %>
+          <h5 class="mb-2"><%= @dj.genre %></h5>
+          <h5 class="mb-2"><%= @dj.description %></h5>
+          <h3 class="card-price"><%= @dj.price_per_day %> € Night</h3>
+          <%= link_to "Book Now", new_booking_path, class: "btn btn-dark" %>
         </div>
       </div>
-      <div class="booking-form">
-        <%= render "bookingform", booking: @booking %>
+      <div class="review-and-form d-flex">
+        <div class="reviews mt-2">
+          <h5><strong>Reviews</strong></h5>
+          <ul class="list-group">
+            <% @dj.reviews.each do |review| %>
+              <li class="list-group-item"><%= review.comment %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="booking-form mt-2">
+          <%= render "bookingform", booking: @booking %>
+        </div>
       </div>
     </div>
   </div>

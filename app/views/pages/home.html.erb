@@ -1,22 +1,25 @@
-<div class="bg">
-  <div class="d-flex justify-content-around">
-    <div class="text-main">
-      <div class="airb2b d-flex pb-3">
-        <h1 class="font">air</h1><h1 class="font color-main">b2b</h1>
+<div class="parent">
+  <div class="bg">
+    <div class="d-flex justify-content-around">
+      <div class="text-main">
+        <div class="airb2b d-flex pb-3">
+          <h1 class="font">air</h1><h1 class="font color-main">b2b</h1>
+        </div>
+        <h5 class="font">Find the best DJs</h5>
+        <h5 class="font pb-4">around the world!</h5>
+        <%= link_to "Explore", djs_path, class: "button font color-main weight-300" %>
       </div>
-      <h5 class="font pb-4">Find the best DJs around the world!</h5>
-      <%= link_to "Explore", djs_path, class: "button font color-main weight-300" %>
-    </div>
-    <div class="swiper mySwiper" data-controller="swiper">
-      <div class="swiper-wrapper">
-        <% @djs.each do |dj| %>
-          <div class="swiper-slide">
-            <%= image_tag dj.picture %>
-          </div>
-        <% end %>
+      <div class="swiper mySwiper" data-controller="swiper">
+        <div class="swiper-wrapper">
+          <% @djs.each do |dj| %>
+            <div class="swiper-slide">
+              <%= image_tag dj.picture %>
+            </div>
+          <% end %>
+        </div>
+        <div class="swiper-pagination"></div>
       </div>
-      <div class="swiper-pagination"></div>
-    </div>
+      </div>
     </div>
   </div>
 </div>
