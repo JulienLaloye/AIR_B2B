@@ -1,12 +1,19 @@
-<div class="booking-card-sl m-3 p-2">
-  <div class="booking-card-heading">
-    <%= booking.user.location %>
-  </div>
-    <div class="d-flex justify-content-between">
-      <div class="booking-card-text"><%= booking.date_begin.strftime('%d %b. %Y') %> - <%= booking.date_end.strftime('%d %b. %Y') %></div>
-      <div>
-        <div class="booking-card-text">Booker: <strong><%= booking.user.first_name%> <%= booking.user.last_name%></strong></div>
-        <i class="fa-solid fa-star"><%= booking.user.reviews %></i>
+<div class="booking-card-sl m-3 p-2 d-flex flex-column">
+      <div class="booking-card-header d-flex justify-content-center"><%= booking.user.location %></div>
+      <div class="d-flex justify-content-between">
+        <div class="booking-card-text"><%= booking.date_begin.strftime('%d %b. %Y') %> - <%= booking.date_end.strftime('%d %b. %Y') %></div>
       </div>
-  </div>
+          <div class="booking-card-text">Booker: <strong><%= booking.user.first_name%> <%= booking.user.last_name%></strong></div>
+          <% if booking.status == 0 %>
+            <div class="d-flex justify-content-between">
+              <%= button_to  "accept", booking_accept_path(booking), method: :post, class: "btn btn-success" %>
+              <%= button_to  "decline", booking_decline_path(booking), method: :post, class: "btn btn-danger" %>
+            </div>
+          <% elsif booking.status == 1 %>
+              <div class="booking-card-text">
+                <h4><strong><%= booking.reviews.where(type_of_review: 0).last.user.first_name %>: </strong><%= booking.reviews.where(type_of_review: 0).last.comment %></h4>
+                <i class="fa-solid fa-star"><%=  booking.reviews.where(type_of_review: 0).last.rating %></i>
+              </div>
+              <%= link_to  "Review", booking_path(booking), class: "button font color-main", style: "border-radius: 0px 0px 8px 8px; border: none; bottom: 0"  %>
+          <% end %>
 </div>

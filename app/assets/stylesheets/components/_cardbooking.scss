@@ -11,7 +11,7 @@
 }
 
 .booking-card-image > img {
-  border-radius: 8px 8px 0px 0;
+  border-radius: 8px;
   max-height: 100%;
   max-width: 100%;
   object-fit: cover;
@@ -38,6 +38,11 @@
   -webkit-animation: pulse 1.5s infinite;
 }
 
+.booking-card-action:not(:hover) {
+  filter: grayscale(100%);
+
+}
+
 .booking-card-heading {
   font-size: 18px;
   font-weight: bold;
@@ -54,12 +59,9 @@
 
 .booking-card-status {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding: 10px 0;
   width: 100%;
-  background-color: #1F487E;
-  color: #fff;
-  border-radius: 0 0 8px 8px;
 }
 
 .booking-card-button:hover {
@@ -68,16 +70,25 @@
   color: #fff;
 }
 
-.my-booking-card-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 16px;
-  padding: 16px;
-}
-
 .booking-card-sl:hover {
   transform: scale(1.1);
   -webkit-animation: pulse 1.5s infinite;
+}
+
+@media (max-width: 1024px) {
+  .booking-card-container  {
+    width: 100%; /* Make the card take the full width of the screen */
+    height: auto;
+    grid-template-columns: 1fr 1fr; /* Allow the height to adjust according to the content */
+  }
+}
+
+@media (max-width: 767px) {
+  .booking-card-container  {
+    width: 100%; /* Make the card take the full width of the screen */
+    height: auto;
+    grid-template-columns: 1fr; /* Allow the height to adjust according to the content */
+  }
 }
 
 @-webkit-keyframes pulse {

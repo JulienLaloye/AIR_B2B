@@ -3,10 +3,15 @@
   <div class="dj-card-img-top">
     <%= image_tag dj.picture, class: "dj-card-img w-100", alt: "dj-picture" %>
   </div>
-  <div class="dj-card-content">
-    <div class="dj-card-heading" ><h5 class="font"><%= dj.name %></h5></div>
-    <div class="dj-card-price"> <h5 class="font weight-300 font-small"> Price/night: €<%= dj.price_per_day %></h5></div>
-    <% end  %>
-    <div class="dj-card-text" ><h5 class="font weight-300 font-small"><%= dj.genre%></h5></div>
+  <div class="dj-card-content d-flex flex-column">
+    <div class="d-flex justify-content-between">
+      <div class="dj-card-heading" ><h5 class="font"><%= dj.name %></h5></div>
+      <div class="dj-card-text" ><i class="fa-solid fa-music"></i><h5 class="font weight-300 font-small">  <%= dj.genre%>  </h5><i class="fa-solid fa-music"></i></div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div class="dj-card-price" ><h5 class="font weight-300 font-small"> Price/night: €<%= dj.price_per_day %></h5></div>
+      <div class="dj-card-price align-items-baseline" >  <i class="fa-sharp fa-solid fa-location-dot dot"></i><span>Location: <%= dj.location %></span></div>
+    </div>
   </div>
+<% end  %>
 </div>
