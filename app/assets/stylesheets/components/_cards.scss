@@ -54,6 +54,10 @@
   color: black;
 }
 
+.dot {
+  margin-right: 3px;
+}
+
 @media (max-width: 1024px) {
   .dj-card-container  {
     width: 100%; /* Make the card take the full width of the screen */
