@@ -10,14 +10,21 @@
   <h1>My DJ's bookings</h1>
   <div class="my-booking-card-container">
     <% @djs.each do |dj| %>
-      <div class="booking-card">
+      <div class="booking-card" style="background-image: <%= dj.picture %>">
       <h2 class="d-flex justify-content-center"><%= dj.name %></h2>
-      <div class="booking-card-image-top">
-          <%= image_tag dj.picture, class: "booking-card-image w-100", alt: "dj-picture" %>
-      </div>
-          <% dj.bookings.each do |booking| %>
-              <%= render "mydjcard", booking: booking %>
+      <%# carrousel %>
+        <h2 class="d-flex justify-content-center">Pending bookings</h2>
+        <div class="booking-card-container">
+          <% dj.bookings.where(status: 0).each do |booking| %>
+             <%= render "mydjcard", booking: booking %>
           <% end %>
+        </div>
+        <h2 class="d-flex justify-content-center">Recent bookings</h2>
+        <div class="booking-card-container">
+          <% dj.bookings.where(status: 1).each do |booking| %>
+             <%= render "mydjcard", booking: booking %>
+          <% end %>
+        </div>
       </div>
     <% end%>
   </div>

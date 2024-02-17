@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   resources :bookings, except: %i[destroy edit] do
     resources :reviews, only: :create
+    post "accept", to: "bookings#accept"
+    post "decline", to: "bookings#decline"
+    post "cancel", to: "bookings#cancel"
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
