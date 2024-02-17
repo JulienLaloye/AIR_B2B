@@ -1,7 +1,22 @@
 .btn {
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  font-size: 20px;
+  background: transparent;
+  border: 2px;
+  border-style: solid;
+  background-color: #B08C8C;
+  padding: 10px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  height: 51px;
+}
+
+.btn:hover {
+  background-color: #B08C8C;
+  border: transparent;
+  text-decoration: none;
+  color: black;
+  transition: 0.8s;
 }

@@ -1,10 +1,21 @@
- <div class="booking-form">
-    <%= simple_form_for(@dj) do |f| %>
-    <%= f.input :location %>
-    <%= f.input :capacity %>
+<div class="booking-form">
+  <%= form_with model: @dj do |dj_form| %>
+    <div class="field">
+      <%= dj_form.label :location %>
+      <%= dj_form.text_field :location %>
+    </div>
+    <div class="field">
+      <%= dj_form.label :capacity %>
+      <%= dj_form.text_field :capacity %>
+    </div>
   <% end %>
-  <%= simple_form_for(@booking) do |f| %>
-    <%= f.input :date_begin %>
-    <%= f.input :date_end %>
+
+  <%= simple_form_for(@booking) do |booking_form| %>
+    <div class="field">
+      <%= booking_form.input :date_begin %>
+    </div>
+    <div class="field">
+      <%= booking_form.input :date_end %>
+    </div>
   <% end %>
 </div>

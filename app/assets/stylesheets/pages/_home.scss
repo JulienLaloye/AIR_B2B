@@ -2,6 +2,8 @@ body {
 background-color: white;
 }
 
+
+
 .bg {
   display: flex;
   align-items: center;
@@ -9,6 +11,7 @@ background-color: white;
   height: 80vh;
   background-color: white;
 }
+
 
 .swiper {
   width: 400px;
@@ -31,13 +34,13 @@ background-color: white;
 }
 
 .text-main {
-  margin-right: 150px;
-  margin-top: 60px;
+  margin-right: 180px;
+  margin-top: 40px;
 }
 
 .airb2b > h1 {
   font-weight: 600;
-  font-size: 4em;
+  font-size: 5.2em;
 }
 .dj-swipe {
   display: inline;
@@ -61,8 +64,8 @@ background-color: white;
   border: 2px;
   border-style: solid;
   border-color: #B08C8C;
-  padding: 10px 30px;
-  border-radius: 30px;
+  padding: 10px 100px;
+  border-radius: 40px;
   cursor: pointer;
   text-decoration: none;
 }

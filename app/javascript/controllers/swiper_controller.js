@@ -23,6 +23,25 @@ export default class extends Controller {
       scrollbar: {
         el: '.swiper-scrollbar',
       },
+
+      autoplay: {
+        delay: 4000,
+      }
+
+
+
     });
   }
 }
+
+
+/* ------ POSSIBLE FEATURES FOR THE SLIDER -START
+autoplay: {
+  delay: 4000,
+}
+
+  fadeEffect: {
+    crossFade: true},
+
+effect: 'fade',  //-- can be placed below the loop parameter
+------ POSSIBLE FEATURES FOR SLIDERS -END */
