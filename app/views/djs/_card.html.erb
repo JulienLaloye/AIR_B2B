@@ -4,9 +4,9 @@
     <%= image_tag dj.picture, class: "dj-card-img w-100", alt: "dj-picture" %>
   </div>
   <div class="dj-card-content">
-    <div class="dj-card-heading" ><%= dj.name %></div>
-    <div class="dj-card-price" > Price/night: €<%= dj.price_per_day %></div>
+    <div class="dj-card-heading" ><h5 class="font"><%= dj.name %></h5></div>
+    <div class="dj-card-price"> <h5 class="font weight-300 font-small"> Price/night: €<%= dj.price_per_day %></h5></div>
     <% end  %>
-    <div class="dj-card-text" ><%= dj.genre%></div>
+    <div class="dj-card-text" ><h5 class="font weight-300 font-small"><%= dj.genre%></h5></div>
   </div>
 </div>

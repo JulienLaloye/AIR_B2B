@@ -2,35 +2,43 @@
   <div class="row my-3 justify-content-center">
     <div class="col-12">
       <div class="d-flex">
-        <div class="picture">
+        <div class="picture mt-4">
           <%= image_tag @dj.picture, class: "card-img-top", alt: "dj-picture" %>
         </div>
-        <div class="card-info flex-fill mb-2">
+        <div class="card-info flex-fill my-4">
           <div class="d-flex justify-content-between align-items-center">
-            <h1><%= @dj.name %></h1>
-            <h4><i class="fa-solid fa-map-pin"></i> <%= @dj.location %></h4>
+            <h1 class="font"><%= @dj.name %></h1>
+            <h4 class="font"><i class="fa-solid fa-map-pin"></i> <%= @dj.location %></h4>
           </div>
-          <button class="btn btn-dark mb-3">
+          <button class="btn btn-dark my-3">
             <i class="fa-solid fa-play"></i>
           </button>
-          <h5 class="mb-2"><%= @dj.genre %></h5>
-          <h5 class="mb-2"><%= @dj.description %></h5>
-          <h3 class="card-price"><%= @dj.price_per_day %> € Night</h3>
-          <%= link_to "Book Now", new_booking_path, class: "btn btn-dark" %>
+          <h5 class="mb-3 font"><%= @dj.genre %></h5>
+          <h5 class="mb-3 font weight-300"><%= @dj.description %></h5>
+          <h3 class="card-price font py-2"><%= @dj.price_per_day %> € Night</h3>
+          <%= link_to "Book Now", new_booking_path, class: "btn font btn-dark py-2" %>
         </div>
       </div>
-      <div class="review-and-form d-flex">
-        <div class="reviews mt-2">
-
-
-          <h5><strong>Reviews</strong></h5>
-          <ul class="list-group list-group-flush">
-            <% @dj.reviews.each do |review| %>
-              <li class="list-group-item"><%= review.comment %></li>
-            <% end %>
-          </ul>
+      <div class="review-and-form d-flex mb-4">
+        <div class="show-reviews">
+          <h5 class="font">Reviews</h5>
+          <div class="d-flex">
+            <h5 class="color-main pr-2">★</h5>
+            <%= @rating.round(2) %>
+          </div>
+          <div class="dropdown" data-controller="show" data-show-open-value="false">
+            <button class="dropdown-btn" role="button" tabindex=0 data-show-target="openButton" data-action="click->show#openDropdown">All reviews</button>
+            <button class="dropdown-btn" role="button" tabindex=0 data-show-target="closeButton" data-action="click->show#closeDropdown">Close all reviews</button>
+            <div class="dropdown-list dropdown-6" data-show-target="dropdownContent">
+              <ul class="list-group list-group-flush dropdown_menu dropdown_menu--animated dropdown_menu-6">
+                <% @dj.reviews.each do |review| %>
+                  <li class="list font list-group-item"><%= review.comment %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="booking-form mt-2">
+        <div class="booking-form mb-4">
           <%= render "bookingform", booking: @booking %>
         </div>
       </div>
