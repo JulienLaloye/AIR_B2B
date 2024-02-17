@@ -54,10 +54,20 @@
   color: black;
 }
 
+@media (max-width: 1024px) {
+  .dj-card-container  {
+    width: 100%; /* Make the card take the full width of the screen */
+    height: auto;
+    grid-template-columns: 1fr 1fr /* Allow the height to adjust according to the content */
+  }
+}
+
+
 @media (max-width: 767px) {
   .dj-card-container  {
     width: 100%; /* Make the card take the full width of the screen */
-    height: auto; /* Allow the height to adjust according to the content */
+    height: auto;
+    grid-template-columns: 1fr /* Allow the height to adjust according to the content */
   }
 
   .dj-card-price {
@@ -93,6 +103,6 @@
     padding: 10px 15px;
     background: #fff;
     font-size: 14px;
-    color: #636262;
+    color: #1f1e1e;
     margin-bottom: 16px;
 }

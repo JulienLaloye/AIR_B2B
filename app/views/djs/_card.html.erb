@@ -6,11 +6,11 @@
   <div class="dj-card-content d-flex flex-column">
     <div class="d-flex justify-content-between">
       <div class="dj-card-heading" ><%= dj.name %></div>
-      <div class="dj-card-text" ><%= dj.genre%></div>
+      <div class="dj-card-text" ><i class="fa-solid fa-music"></i>  <%= dj.genre%>  <i class="fa-solid fa-music"></i></div>
     </div>
     <div class="d-flex justify-content-between">
       <div class="dj-card-price" > Price/night: €<%= dj.price_per_day %></div>
-      <div class="dj-card-price" > Location :<%= dj.location %></div>
+      <div class="dj-card-price" >  <i class="fa-sharp fa-solid fa-location-dot">  </i>Location :<%= dj.location %></i></div>
     </div>
   </div>
 <% end  %>
