@@ -15,9 +15,6 @@
         <%= booking.date_begin.strftime('%d %b. %Y') %> - <%= booking.date_end.strftime('%d %b. %Y') %>
     </div>
     <% if booking.status == 0 %>
-    <div class="btn-group" role="group">
-      <a data-action="click->bookings#accept" class="btn btn-success">Accept</a>
-      <a data-action="click->bookings#decline" class="btn btn-danger">Decline</a>
-    </div>
+        
     <% end %>
 </div>
