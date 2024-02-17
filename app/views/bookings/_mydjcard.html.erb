@@ -10,13 +10,10 @@
               <%= button_to  "decline", booking_decline_path(booking), method: :post, class: "btn btn-danger" %>
             </div>
           <% elsif booking.status == 1 %>
-            <%  if booking.reviews.where(type_of_review: 1) %>
-              <%= link_to  "Review", booking_path(booking), class: "button font color-main", style: "border-radius: 0px 0px 8px 8px; border: none;"  %>
-            <% else %>
-              <div class="d-flex justify-content-between">
-                <p><%= booking.review.where(type_of_review: 1).comment %></p>
-                <i class="fa-solid fa-star"><%=  booking.review.where(type_of_review: 1).rating %></i>
+              <div class="booking-card-text">
+                <h4><strong><%= booking.reviews.where(type_of_review: 0).last.user.first_name %>: </strong><%= booking.reviews.where(type_of_review: 0).last.comment %></h4>
+                <i class="fa-solid fa-star"><%=  booking.reviews.where(type_of_review: 0).last.rating %></i>
               </div>
-            <% end %>
+              <%= link_to  "Review", booking_path(booking), class: "button font color-main", style: "border-radius: 0px 0px 8px 8px; border: none; bottom: 0"  %>
           <% end %>
 </div>
