@@ -1,23 +1,18 @@
-<div class="card-sl">
-    <div class="card-image">
-        <%= image_tag booking.dj.picture, class: "card-image w-100", alt: "dj-picture" %>
+<div class="booking-card-sl">
+    <div class="booking-card-image">
+        <%= image_tag booking.dj.picture, class: "card-image", alt: "dj-picture" %>
     </div>
-    <div class="card-heading">
+    <div class="booking-card-heading">
         <%= booking.dj.name %>
     </div>
-    <div class="card-text">
+    <div class="booking-card-text">
         Agent: <%= booking.dj.user.first_name %> <%= booking.dj.user.last_name %>
     </div>
-    <div class="card-text">
+    <div class="booking-card-text">
         Total: €<%=(booking.dj.price_per_day * (booking.date_end - booking.date_begin)).to_i %>
     </div>
-    <div class="card-text">
+    <div class="booking-card-text">
         <%= booking.date_begin.strftime('%d %b. %Y') %> - <%= booking.date_end.strftime('%d %b. %Y') %>
     </div>
-    <% if booking.status == 0 %>
-    <div class="btn-group" role="group">
-      <a data-action="click->bookings#accept" class="btn btn-success">Accept</a>
-      <a data-action="click->bookings#decline" class="btn btn-danger">Decline</a>
-    </div>
-    <% end %>
+      <p class="booking-card-status">Pending</p>
 </div>

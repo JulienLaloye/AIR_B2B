@@ -1,22 +1,22 @@
-.card-container {
+.booking-card-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   padding: 16px;
 }
 
-.card-sl {
+.booking-card-sl {
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.card-image img {
+.booking-card-image img {
   border-radius: 8px 8px 0px 0;
   max-height: 100%;
   max-width: 100%;
 }
 
-.card-action {
+.booking-card-action {
   position: relative;
   float: right;
   margin-top: -25px;
@@ -30,27 +30,27 @@
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
 }
 
-.card-action:hover {
+.booking-card-action:hover {
   color: #fff;
   background: #E26D5C;
   -webkit-animation: pulse 1.5s infinite;
 }
 
-.card-heading {
+.booking-card-heading {
   font-size: 18px;
   font-weight: bold;
   background: #fff;
   padding: 10px 15px;
 }
 
-.card-text {
+.booking-card-text {
   padding: 10px 15px;
   background: #fff;
   font-size: 14px;
   color: #636262;
 }
 
-.card-button {
+.booking-card-status {
   display: flex;
   justify-content: center;
   padding: 10px 0;
@@ -60,11 +60,10 @@
   border-radius: 0 0 8px 8px;
 }
 
-.card-button:hover {
+.booking-card-button:hover {
   text-decoration: none;
   background-color: #1D3461;
   color: #fff;
-
 }
 
 
